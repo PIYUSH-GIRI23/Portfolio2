@@ -46,7 +46,6 @@ const tools = [
   { name: 'Visual Studio Code', desc: 'Text Editor', url: 'https://code.visualstudio.com/docs' },
   { name: 'PyCharm', desc: 'Python IDE', url: 'https://www.jetbrains.com/pycharm/learn' },
   { name: 'IntelliJ IDEA', desc: 'Java IDE', url: 'https://www.jetbrains.com/idea/learn' },
-  { name: 'Google Chrome', desc: 'Web Browser', url: 'https://developer.chrome.com/docs' },
   { name: 'Postman', desc: 'API Testing', url: 'https://learning.postman.com/docs' }
 ]
 
@@ -94,10 +93,10 @@ const About = () => {
             I'm Piyush Giri. I live in India, where I build the future.
           </h1>
           <p className="text-gray-400 leading-relaxed">
-            I am a self-driven, career-oriented software engineer specializing in front-end
-            development and open-source, currently pursuing a bachelors degree in
+            I am a self-driven, career-oriented software engineer specializing in full stack
+            development currently pursuing a bachelors degree in
             computer science. My expertise lies in building interactive web applications on
-            the client side. Primarily working with technologies like JavaScript, TypeScript and Python.
+            the client side. Primarily working with technologies like JavaScript, TypeScript and MERN Stack.
           </p>
           <p className="text-gray-400 leading-relaxed">
             I strongly believe in continuous learning and improving myself, so I try my best to
