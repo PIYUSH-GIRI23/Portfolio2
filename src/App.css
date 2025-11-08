@@ -1,0 +1,414 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@600;700&display=swap');
+
+:root{
+	--bg: #0b0b0d;
+	--glass-bg: rgba(255,255,255,0.04);
+	--glass-border: rgba(255,255,255,0.06);
+	--muted: rgba(255,255,255,0.6);
+	--accent: #10b981;
+}
+
+html,body,#root{
+	height:100%;
+}
+
+body{
+	font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+	background-color: var(--bg);
+	-webkit-font-smoothing:antialiased;
+	-moz-osx-font-smoothing:grayscale;
+}
+
+.glass-nav{
+	background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+	border-bottom: 1px solid var(--glass-border);
+	backdrop-filter: blur(8px) saturate(120%);
+}
+
+.glass-hero{
+	background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+	border: 1px solid var(--glass-border);
+	backdrop-filter: blur(6px) saturate(110%);
+}
+
+.glass-card{
+	background: rgba(255,255,255,0.03);
+	border: 1px solid var(--glass-border);
+	padding: 1rem;
+	border-radius: 12px;
+}
+
+.social-link{
+	color: var(--muted);
+	padding-right: 12px;
+	text-decoration: underline transparent;
+}
+.social-link:hover{ color: white; text-decoration-color: rgba(255,255,255,0.06); }
+
+.btn-primary{ background: linear-gradient(90deg,var(--accent), #06b6d4); color: black; padding: .6rem 1rem; border-radius: 10px; font-weight:600 }
+.btn-ghost{ border: 1px solid rgba(255,255,255,0.04); padding:.55rem .9rem; border-radius:10px }
+
+/* Navbar CTA button with good contrast on glass background */
+.btn-nav{ display:inline-flex; align-items:center; gap:.5rem; color:#e5e7eb; font-weight:600; font-size:.9rem; padding:.5rem .9rem; border-radius:10px; border:1px solid var(--glass-border); background: rgba(255,255,255,0.04); backdrop-filter: blur(6px) saturate(110%); }
+.btn-nav:hover{ background: rgba(255,255,255,0.08); color:#fff }
+
+/* Skill chips */
+.skill-chip{ display:flex; align-items:center; justify-content:center; padding:14px; border-radius:12px; background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.04); min-height:86px; }
+.glass-skill{ box-shadow: 0 6px 18px rgba(2,6,23,0.7); }
+
+/* Larger, consistent skill icon sizing so tiny logos are visible */
+.skill-img{ width:52px; height:52px; object-fit:contain; }
+@media (min-width: 768px){ .skill-img{ width:58px; height:58px } }
+
+/* Interactive skill links */
+.skill-link{ cursor:pointer; transition: background .25s, transform .25s, border-color .25s; position:relative; }
+.skill-link:hover{ background:rgba(255,255,255,0.06); border-color:rgba(255,255,255,0.10); transform:translateY(-4px); }
+.skill-link:active{ transform:translateY(-1px) scale(.98); }
+.skill-link:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+
+/* Skill tooltip on hover */
+.skill-link::after {
+  content: attr(data-name);
+  position: absolute;
+  bottom: -32px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.9);
+  color: white;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s;
+  z-index: 10;
+}
+.skill-link:hover::after {
+  opacity: 1;
+}
+
+/* ================= Enhanced Skill Cards (Skills.jsx) ================= */
+.skill-card{ position:relative; overflow:hidden; border:1px solid rgba(255,255,255,0.06); background:linear-gradient(135deg, rgba(255,255,255,0.03), rgba(255,255,255,0.015)); border-radius:16px; padding:1.1rem 1rem; backdrop-filter:blur(6px) saturate(110%); transition: transform .45s cubic-bezier(.16,.84,.44,1), border-color .4s, box-shadow .45s; }
+.skill-card::before{ content:''; position:absolute; inset:0; background:radial-gradient(circle at 30% 30%, rgba(16,185,129,0.15), transparent 60%); opacity:0; transition:opacity .5s; }
+.skill-card::after{ content:''; position:absolute; inset:0; border:1px solid transparent; border-radius:16px; background:linear-gradient(120deg, rgba(16,185,129,0.5), rgba(6,182,212,0.4)) border-box; -webkit-mask: linear-gradient(#000 0 0) padding-box, linear-gradient(#000 0 0); mask: linear-gradient(#000 0 0) padding-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; opacity:.25; filter:blur(4px); transition:opacity .6s; }
+.skill-card:hover{ transform:translateY(-6px) rotateX(4deg) rotateY(-4deg); box-shadow:0 12px 32px -8px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.05); border-color:rgba(255,255,255,0.20); }
+.skill-card:hover::before{ opacity:1; }
+.skill-card:hover::after{ opacity:.55; }
+.skill-card:active{ transform:translateY(-2px) scale(.985); }
+.skill-icon-wrap{ width:70px; height:70px; display:flex; align-items:center; justify-content:center; border-radius:14px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08); position:relative; overflow:hidden; }
+.skill-icon-wrap::after{ content:''; position:absolute; inset:0; background:linear-gradient(140deg, rgba(16,185,129,0.3), rgba(6,182,212,0.25)); opacity:0; mix-blend-mode:overlay; transition:opacity .5s; }
+.skill-card:hover .skill-icon-wrap::after{ opacity:.55; }
+.skill-name{ font-weight:600; letter-spacing:.3px; }
+.skill-desc{ font-size:.75rem; line-height:1.25rem; color:var(--muted); }
+.skill-doc-link{ display:inline-flex; align-items:center; gap:.4rem; font-size:.7rem; margin-top:.55rem; padding:.35rem .6rem; border-radius:8px; background:rgba(16,185,129,0.08); color:var(--accent); border:1px solid rgba(16,185,129,0.25); transition:background .25s, color .25s, border-color .25s; }
+.skill-doc-link:hover{ background:rgba(16,185,129,0.18); color:#34d399; border-color:rgba(16,185,129,0.4); }
+
+/* Entry animation */
+@keyframes skillFadeIn{
+	0%{ opacity:0; transform:translateY(22px) scale(.96); }
+	60%{ opacity:1; transform:translateY(-2px) scale(1.005); }
+	100%{ opacity:1; transform:translateY(0) scale(1); }
+}
+.skill-enter{ animation:skillFadeIn .9s cubic-bezier(.16,.84,.44,1) forwards; }
+@media (prefers-reduced-motion: reduce){
+	.skill-card{ transition:none; }
+	.skill-enter{ animation:none; opacity:1; transform:none; }
+}
+
+/* Animated decorative boxes */
+.animated-box{ position:absolute; border:1px solid rgba(16,185,129,0.12); width:68px; height:68px; border-radius:6px; transform-origin:center; }
+.animated-box::after{ content:''; position:absolute; left:6px; top:6px; right:6px; bottom:6px; border:1px dashed rgba(16,185,129,0.06); border-radius:4px }
+.box-1{ right:20px; top:10px; animation:float 6s ease-in-out infinite; }
+.box-2{ right:80px; top:60px; width:92px; height:92px; animation:float 8s ease-in-out infinite; opacity:0.9 }
+.box-3{ right:30px; top:120px; width:48px; height:48px; animation:float 5s linear infinite; }
+.box-4{ right:130px; top:20px; width:42px; height:42px; animation:float 7s ease-in-out infinite; }
+
+@keyframes float{
+	0%{ transform: translateY(0) rotate(0deg); opacity: .9 }
+	50%{ transform: translateY(-18px) rotate(6deg); opacity: .7 }
+	100%{ transform: translateY(0) rotate(0deg); opacity: .9 }
+}
+
+/* Timeline - single-column left-aligned timeline like example */
+.timeline{
+	position:relative;
+	padding: 1rem 0 2.5rem 0;
+	display: flex;
+	flex-direction: column;
+	gap: 1.75rem;
+}
+
+/* vertical line placed near the left side where icons sit */
+.timeline::before{
+	content:'';
+	position:absolute;
+	left:44px; /* aligns with icon center */
+	top:0;
+	bottom:0;
+	width:2px;
+	background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+	z-index:1;
+}
+
+.timeline-item{
+	position:relative;
+	display: grid;
+	grid-template-columns: 72px 1fr; /* icon column + content */
+	gap: 1rem;
+	align-items:start;
+}
+
+.timeline-icon{
+	width:56px;
+	height:56px;
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	background: rgba(255,255,255,0.03);
+	border: 1px solid rgba(255,255,255,0.06);
+	border-radius:10px;
+	box-shadow: 0 6px 18px rgba(2,6,23,0.6);
+	z-index:2;
+	margin-left:8px; /* nudge to align over line */
+}
+
+.timeline-card{
+	display:block;
+	position:relative;
+	z-index:2;
+	max-width:900px;
+}
+
+/* Small dot connector from icon to the line */
+.timeline-icon::after{
+	content:'';
+	position:absolute;
+	left:50%;
+	transform:translateX(-50%);
+	top:56px; /* connects downward to the line visually (subtle)	*/
+	width:2px;
+	height:12px;
+	background: transparent;
+}
+
+@media (max-width: 768px){
+	.timeline::before{ left:28px }
+	.timeline-item{ grid-template-columns: 48px 1fr; gap:0.75rem }
+	.timeline-icon{ width:40px; height:40px; margin-left:4px }
+}
+
+/* small tweaks */
+.font-display{ font-family: 'Playfair Display', Georgia, serif; }
+
+/* ================= Scroll-Based Animations ================= */
+/* Base state for all animated elements */
+.fade-in-up,
+.fade-in-left,
+.fade-in-right,
+.scale-in,
+.slide-up {
+  opacity: 0;
+}
+
+/* Fade in from bottom */
+.fade-in-up {
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-up.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Fade in from left */
+.fade-in-left {
+  transform: translateX(-30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-left.animate-in {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Fade in from right */
+.fade-in-right {
+  transform: translateX(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-right.animate-in {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Scale in */
+.scale-in {
+  transform: scale(0.9);
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.scale-in.animate-in {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Slide up */
+.slide-up {
+  transform: translateY(40px);
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+.slide-up.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .fade-in-up,
+  .fade-in-left,
+  .fade-in-right,
+  .scale-in,
+  .slide-up {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ================= Project Cards (Projects Page) ================= */
+.project-card {
+  position: relative;
+  display: block;
+  opacity: 0;
+  transform: translateY(30px) scale(0.95);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.project-card.animate-in {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.project-card-inner {
+  position: relative;
+  background: linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 16px;
+  padding: 1.5rem;
+  height: 100%;
+  overflow: hidden;
+  backdrop-filter: blur(6px) saturate(110%);
+  transition: all 0.4s cubic-bezier(0.16, 0.84, 0.44, 1);
+}
+
+/* Gradient glow effect on hover */
+.project-card-inner::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  background: linear-gradient(135deg, rgba(16,185,129,0.3), rgba(6,182,212,0.2));
+  border-radius: 16px;
+  opacity: 0;
+  transition: opacity 0.4s;
+  z-index: -1;
+  filter: blur(8px);
+}
+
+.project-card:hover .project-card-inner::before {
+  opacity: 0.6;
+}
+
+.project-card:hover .project-card-inner {
+  transform: translateY(-8px);
+  border-color: rgba(255,255,255,0.15);
+  box-shadow: 0 12px 40px -12px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.05);
+}
+
+/* Project Icon */
+.project-icon-wrapper {
+  display: inline-block;
+}
+
+.project-icon-bg {
+  width: 64px;
+  height: 64px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  box-shadow: 0 8px 24px -8px rgba(0,0,0,0.5);
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-icon-bg {
+  transform: scale(1.1) rotate(5deg);
+}
+
+/* Project Link Buttons */
+.project-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.75rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: 8px;
+  background: rgba(16,185,129,0.08);
+  color: var(--accent);
+  border: 1px solid rgba(16,185,129,0.25);
+  transition: all 0.25s ease;
+  font-weight: 500;
+}
+
+.project-link-btn:hover {
+  background: rgba(16,185,129,0.18);
+  color: #34d399;
+  border-color: rgba(16,185,129,0.4);
+  transform: translateY(-2px);
+}
+
+/* Arrow indicator on hover */
+.project-card-arrow {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  color: rgba(255,255,255,0.3);
+  opacity: 0;
+  transform: translate(4px, -4px);
+  transition: all 0.3s ease;
+  pointer-events: none;
+}
+
+.project-card:hover .project-card-arrow {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* Project card animations */
+@keyframes projectCardFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .project-card-inner {
+    padding: 1.25rem;
+  }
+  
+  .project-icon-bg {
+    width: 56px;
+    height: 56px;
+  }
+}
+
