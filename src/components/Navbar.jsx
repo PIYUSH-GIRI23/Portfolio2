@@ -16,6 +16,11 @@ const Navbar = () => {
     return () => document.body.classList.remove('overflow-hidden');
   }, [open]);
 
+  const handleNavigate = (path) => {
+    setOpen(false);
+    navigate(path);
+  };
+
   return (
     <header className="sticky top-0 z-50 glass-nav">
       <div className="max-w-6xl mx-auto flex items-center justify-between px-6 py-3">
@@ -74,10 +79,10 @@ const Navbar = () => {
       {open && (
         <div className="md:hidden absolute inset-x-0 top-full bg-[#0b0b0d]/95 backdrop-blur-sm border-t border-white/10">
           <div className="px-6 py-6 flex flex-col gap-4 text-gray-200 font-medium">
-            <button onClick={() => navigate('/about')} className="text-left hover:text-white">About</button>
-            <button onClick={() => navigate('/projects')} className="text-left hover:text-white">Projects</button>
-            <button onClick={() => navigate('/skills')} className="text-left hover:text-white">Skills</button>
-            <button onClick={() => navigate('/experience')} className="text-left hover:text-white">Experience</button>
+            <button onClick={() => handleNavigate('/about')} className="text-left hover:text-white">About</button>
+            <button onClick={() => handleNavigate('/projects')} className="text-left hover:text-white">Projects</button>
+            <button onClick={() => handleNavigate('/skills')} className="text-left hover:text-white">Skills</button>
+            <button onClick={() => handleNavigate('/experience')} className="text-left hover:text-white">Experience</button>
             <a href="mailto:giri.piyush2003@gmail.com" className="btn-nav w-fit">Hire me</a>
           </div>
         </div>

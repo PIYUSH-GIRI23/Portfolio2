@@ -255,7 +255,7 @@ const Experience = () => {
       <footer className="max-w-6xl mx-auto mt-16 py-8 text-sm text-gray-500 border-t border-white/6">
         <div className="flex flex-col md:flex-row items-center justify-between gap-3">
           <div>Mail to: giri.piyush2003@gmail.com</div>
-          <div>WhatsApp: +91 93545 68798</div>
+          <div>Delhi, India</div>
         </div>
         <div className="mt-4 text-center md:text-left">Copyright © 2025 Piyush Giri All rights reserved</div>
       </footer>
