@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react'
 import { CiMail } from 'react-icons/ci'
 import { FiDownload, FiExternalLink } from 'react-icons/fi'
-import Profile from '../assets/profile.png'
+import Profile from '../assets/profile2.png'
 import Bootstrap from '../assets/skills/bootstrap.png'
 import C from '../assets/skills/c.png'
 import Cloudinary from '../assets/skills/cloudinary.png'

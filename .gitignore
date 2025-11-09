@@ -24,3 +24,6 @@ dist-ssr
 *.sw?
 
 .env
+
+assets/profile_nobg.png
+assets/profile.png
