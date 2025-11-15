@@ -95,8 +95,8 @@ const About = () => {
           <p className="text-gray-400 leading-relaxed">
             I am a self-driven, career-oriented software engineer specializing in full stack
             development currently pursuing a bachelors degree in
-            computer science. My expertise lies in building interactive web applications on
-            the client side. Primarily working with technologies like JavaScript, TypeScript and MERN Stack.
+            computer science. My expertise lies in building interactive web applications. 
+            Primarily working with technologies like JavaScript, TypeScript and MERN Stack.
           </p>
           <p className="text-gray-400 leading-relaxed">
             I strongly believe in continuous learning and improving myself, so I try my best to
