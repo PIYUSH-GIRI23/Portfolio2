@@ -55,8 +55,8 @@ const platforms = [
 ]
 
 const About = () => {
-  const resumeLink = 'https://drive.google.com/file/d/1LInGq4Kz9q8IgzV7zakRUvlt8sapjsRB/view?usp=sharing'
-  const resumeDownloadLink = 'https://drive.google.com/uc?export=download&id=1LInGq4Kz9q8IgzV7zakRUvlt8sapjsRB'
+  const resumeLink = 'https://drive.google.com/file/d/1MiqBcCqjzZfudsJBZuuQDNrqCp24_5F7/view?usp=sharing'
+  const resumeDownloadLink = 'https://drive.google.com/uc?export=download&id=1MiqBcCqjzZfudsJBZuuQDNrqCp24_5F7'
 
   const observerRef = useRef(null)
 
