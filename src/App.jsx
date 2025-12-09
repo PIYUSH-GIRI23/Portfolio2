@@ -1,6 +1,7 @@
 
 import './App.css'
 import Navbar from './components/Navbar.jsx'
+import SEOHead from './components/SEOHead.jsx'
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import { useEffect } from 'react'
 import HomePage from './components/Homepage.jsx'
@@ -12,7 +13,6 @@ import Shrinkr from './components/projects/shrinkr/Shrinkr.jsx'
 import Zipp from './components/projects/zipp/Zipp.jsx'
 import CliTodo from './components/projects/cli-todo/CliTodo.jsx'
 
-// Component to scroll to top on route change
 function ScrollToTop() {
   const { pathname } = useLocation();
 
@@ -27,6 +27,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
+        <SEOHead />
         <ScrollToTop />
         <Navbar />
         <Routes>
